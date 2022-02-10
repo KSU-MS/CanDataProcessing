@@ -1,0 +1,40 @@
+{
+    "compilerOptions": {
+        "incremental": true,
+        "module": "commonjs",
+        "declaration": true,
+        "sourceMap": true,
+        "composite": true,
+        "moduleResolution": "node",
+        "baseUrl": "./",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "target": "es6",
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "preserveConstEnums": true,
+        "resolveJsonModule": true,
+        "rootDir": "src",
+        "outDir": "dist",
+        "lib": [
+            "es5",
+            "es6",
+            "dom",
+            "scripthost",
+            "es2016",
+            "es2017",
+            "es2020"
+        ],
+        "typeRoots": [
+            "./node_modules/@types"
+        ]
+    },
+    "exclude": [
+        "./src/**/*.spec.ts"
+    ],
+    "include": [
+        "./src/**/*"
+    ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "log2db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/server.js",
+    "build": "tsc",
+    "watch": "nodemon -w src/ -e ts,json --exec \"node --inspect-brk --require ts-node/register src/server.ts\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.11",
+    "@types/multer": "^1.4.5",
+    "@types/mysql": "^2.15.18",
+    "@types/node": "^15.0.3",
+    "@types/serialport": "^8.0.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "mysql": "^2.18.1",
+    "serialport": "^9.0.7",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  }
+}

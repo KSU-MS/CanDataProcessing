@@ -1,0 +1,45 @@
+<mat-toolbar color="primary">
+
+    <mat-toolbar-row>
+
+<!--        <button mat-icon-button (click)="toggleSideNav.emit()">-->
+<!--            <mat-icon>menu</mat-icon>-->
+<!--        </button>-->
+
+        <span> KSU Data Acq </span>
+
+        <div fxFlex fxLayout fxLayoutAlign="flex-end">
+
+            <ul fxLayout fxLayoutGap="20px">
+
+                <li fxHide.xs>
+                    <button mat-icon-button>
+                        <mat-icon>settings</mat-icon>
+                    </button>
+                </li>
+
+                <li fxHide.xs>
+                    <button mat-icon-button>
+                        <mat-icon>help_outline</mat-icon>
+                    </button>
+                </li>
+
+                <li>
+                    <button mat-icon-button [matMenuTriggerFor]="auth">
+                        <mat-icon>person_outline</mat-icon>
+                    </button>
+                    <mat-menu #auth="matMenu">
+                        <button mat-menu-item (click)="logout()">
+                            <mat-icon>exit_to_app</mat-icon>
+                            <span>Sign out</span>
+                        </button>
+                    </mat-menu>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </mat-toolbar-row>
+
+</mat-toolbar>

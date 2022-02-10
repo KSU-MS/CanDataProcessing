@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <span>Run Manager</span>
+</mat-toolbar>
+
+<mat-toolbar>
+  <button type="button" mat-button (click)="openDialog()">
+    <mat-icon>upload</mat-icon>
+    Upload Log Data
+  </button>
+  <!--    <span>Run Manager</span>-->
+</mat-toolbar>
+<div class="scroller">
+  <app-runs (editRun)=openDialog($event) (uploadData)=openUploadDialog($event)></app-runs>
+</div>

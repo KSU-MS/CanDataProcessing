@@ -1,0 +1,73 @@
+<h2 mat-dialog-title>{{ data.id ? "Editing Run " + data.id : "New Run" }}</h2>
+<mat-dialog-content class="mat-typography">
+  <form #form="ngForm"  >
+  <div class="expander">
+    <mat-form-field appearance="standard">
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        maxlength="200"
+        placeholder="Car 1 Shakedown"
+        required
+        [(ngModel)]="data.name"
+        name="name"
+      />
+      <!--      <mat-hint align="end">{{ input.value?.length || 0 }}/10</mat-hint>-->
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Location</mat-label>
+      <input
+        matInput
+        maxlength="200"
+        placeholder="Marietta, GA"
+        required
+        [(ngModel)]="data.location"
+        name="location"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        required
+        [(ngModel)]="data.date"
+        name="date"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+    <div class="expander">
+      <mat-form-field class="full-width" appearance="standard">
+        <mat-label>Notes</mat-label>
+        <textarea matInput autocomplete="off-" name="notes"
+                  [(ngModel)]="data.notes" cdkTextareaAutosize></textarea>
+      </mat-form-field>
+    </div>
+<!--    <div class="expander">-->
+
+<!--      <input #fileInput hidden="true" type="file" multiple onclick="this.value=null" (change)="null" accept=".log"/>-->
+<!--      <button mat-flat-button color="primary" (click)="fileInput.click()">-->
+<!--        <mat-icon class="pad-right">upload</mat-icon>-->
+<!--        Upload Log Data-->
+<!--      </button>-->
+<!--      <p>{{fileInput.files?.length}} files selected</p>-->
+<!--&lt;!&ndash;      <mat-expansion-panel hideToggle>&ndash;&gt;-->
+<!--&lt;!&ndash;        <mat-expansion-panel-header>&ndash;&gt;-->
+<!--&lt;!&ndash;          <mat-panel-title>&ndash;&gt;-->
+<!--&lt;!&ndash;            <mat-icon class="pad-right">upload</mat-icon>&ndash;&gt;-->
+<!--&lt;!&ndash;            Upload Logs&ndash;&gt;-->
+<!--&lt;!&ndash;          </mat-panel-title>&ndash;&gt;-->
+<!--&lt;!&ndash;        </mat-expansion-panel-header>&ndash;&gt;-->
+<!--&lt;!&ndash;      </mat-expansion-panel>&ndash;&gt;-->
+
+<!--    </div>-->
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data" [disabled]="!form.valid" cdkFocusInitial >Save</button>
+</mat-dialog-actions>

@@ -1,0 +1,96 @@
+<!--<mat-card>-->
+<!--  <mat-card-title>Runs</mat-card-title>-->
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let row of data | async">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ row.name }}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{ row.date | date: "medium" }} -
+        {{ row.location }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+<div class="uploads">
+  <h3>Logfiles</h3>
+    <table class="uploads-table">
+      <thead>
+      <tr>
+        <th>Upload ID</th>
+        <th>File Name</th>
+        <th>Upload Time</th>
+        <th>Size</th>
+        <th>Status</th>
+        <th>Progress</th>
+      </tr>
+      </thead>
+      <tr *ngFor="let upload of row.uploads">
+        <td>Upload {{ upload.id }}</td>
+        <td>{{ upload.originalName }}</td>
+        <td>
+          {{ upload.timestamp | date: "mediumDate" }}
+        </td>
+        <td>{{ upload.size / 1024 / 1024 | number: "1.0-2" }} MB</td>
+        <td>{{ upload.status }}</td>
+        <td>{{ upload.progress | number: "1.0" }}</td>
+      </tr>
+    </table>
+</div>
+  </mat-expansion-panel>
+</mat-accordion>
+  <table
+    mat-table
+    class="full-width-table"
+    matSort
+    multiTemplateDataRows
+    matSortActive="id"
+    matSortDirection="desc"
+    aria-label="Elements"
+  >
+
+    <tr *matRowDef="let row; columns: []">
+      <!--      <mat-expansion-panel *ngFor="let row of data | async">-->
+      <!--        <mat-expansion-panel-header>-->
+      <!--          <mat-panel-title>-->
+      <!--            {{ row.name }}-->
+      <!--          </mat-panel-title>-->
+      <!--          <mat-panel-description>-->
+      <!--            {{ row.date | date: "medium" }} - -->
+      <!--            {{ row.location }}-->
+      <!--          </mat-panel-description>-->
+      <!--        </mat-expansion-panel-header>-->
+
+      <!--        <table class="uploads-table">-->
+      <!--          <thead>-->
+      <!--            <tr>-->
+      <!--              <th>Upload ID</th>-->
+      <!--              <th>File Name</th>-->
+      <!--              <th>Upload Time</th>-->
+      <!--              <th>Size</th>-->
+      <!--              <th>Status</th>-->
+      <!--              <th>Progress</th>-->
+      <!--            </tr>-->
+      <!--          </thead>-->
+      <!--          <tr *ngFor="let upload of row.uploads">-->
+      <!--            <td>Upload {{ upload.id }}</td>-->
+      <!--            <td>{{ upload.originalName }}</td>-->
+      <!--            <td>-->
+      <!--              {{ upload.timestamp | date: "mediumDate" }}-->
+      <!--            </td>-->
+      <!--            <td>{{ upload.size / 1024 / 1024 | number: "1.0-2" }} MB</td>-->
+      <!--            <td>{{ upload.status }}</td>-->
+      <!--            <td>{{ upload.progress | number: "1.0" }}</td>-->
+      <!--          </tr>-->
+      <!--        </table>-->
+      <!--      </mat-expansion-panel>-->
+<!--      </td>-->
+    </tr>
+  </table>
+<mat-paginator
+  #paginator
+  [pageIndex]="0"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 20]"
+>
+</mat-paginator>
+<!--</mat-card>-->

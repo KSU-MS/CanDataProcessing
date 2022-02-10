@@ -1,0 +1,33 @@
+<mat-sidenav-container>
+
+    <mat-sidenav #sidenav mode="side" opened fixedInViewport>
+
+        <mat-toolbar color="primary">
+            <mat-toolbar-row>
+                <h2>KSU Data Acq</h2>
+            </mat-toolbar-row>
+        </mat-toolbar>
+
+        <mat-nav-list>
+
+            <h2 matSubheader> Logging </h2>
+
+            <a *ngFor="let item of logRoutes"
+               mat-list-item
+               [routerLink]="[item.route]"
+               routerLinkActive="active">
+                <mat-icon matListIcon> {{ item.icon }} </mat-icon>
+                {{item.title}}
+            </a>
+
+            <mat-divider></mat-divider>
+
+        </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

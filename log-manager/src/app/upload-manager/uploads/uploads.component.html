@@ -1,0 +1,66 @@
+<mat-card>
+  <mat-card-title>Uploads</mat-card-title>
+
+  <table
+    mat-table
+    class="full-width-table"
+    matSort
+    matSortActive="id"
+    matSortDirection="desc"
+    aria-label="Elements"
+  >
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+      <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="run">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Run</th>
+      <td mat-cell *matCellDef="let row">{{ row.run }}</td>
+    </ng-container>
+    <ng-container matColumnDef="originalName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <td mat-cell *matCellDef="let row">{{ row.originalName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="timestamp">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Timestamp</th>
+      <td mat-cell *matCellDef="let row">
+        {{ row.timestamp | date: "mediumDate" }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="size">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Size</th>
+      <td mat-cell *matCellDef="let row">{{ row.size / 1024 / 1024 | number: "1.0-2"}} MB</td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+      <td mat-cell *matCellDef="let row">{{ row.status }}</td>
+    </ng-container>
+    <ng-container matColumnDef="progress">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Progress</th>
+      <td mat-cell *matCellDef="let row">{{ row.progress | number: "1.0" }}</td>
+    </ng-container>
+<!--    <ng-container matColumnDef="controls">-->
+<!--      <th mat-header-cell *matHeaderCellDef></th>-->
+<!--      <td mat-cell *matCellDef="let row" class="controls">-->
+<!--        <button mat-icon-button (click)="editUpload.emit(row)">-->
+<!--          <mat-icon>menu</mat-icon>-->
+<!--        </button>-->
+<!--        <button mat-icon-button (click)="uploadData.emit(row)" color="accent">-->
+<!--          <mat-icon>upload</mat-icon>-->
+<!--        </button>-->
+<!--      </td>-->
+<!--    </ng-container>-->
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    #paginator
+    [pageIndex]="0"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 20]"
+  >
+  </mat-paginator>
+</mat-card>

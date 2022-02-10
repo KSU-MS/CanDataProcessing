@@ -1,0 +1,23 @@
+{
+  "name": "loggy",
+  "version": "1.0.0",
+  "description": "Logging team for ksu motorsports",
+  "main": "dist/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node src/app.ts",
+    "build": "tsc"
+  },
+  "author": "Charles McCrary",
+  "license": "ISC",
+  "dependencies": {
+    "@types/prompts": "^2.0.11",
+    "@types/yargs": "^16.0.1",
+    "chalk": "^4.1.1",
+    "nrf24": "^0.1.7-beta",
+    "prompts": "^2.4.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4",
+    "yargs": "^17.0.1"
+  }
+}

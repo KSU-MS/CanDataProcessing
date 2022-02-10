@@ -1,0 +1,12 @@
+timestamp,name,value,units
+1,test_le,10,%
+2,test_be,10,%
+3,test_signed,10,%
+4,test_scale,10,%
+5,test_offset,10,%
+6,test_0_4,10,%
+6,test_4_4,10,%
+7,test_0_1,10,%
+7,test_1_2,10,%
+7,test_4_6,10,%
+7,test_6_8,10,%
